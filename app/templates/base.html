@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" x-data>
+<head>
+    <meta charset="UTF-8" />
+    <title>{% block title %}My Site{% endblock %}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Tailwind optional, but nice for quick styling (you can remove if not wanted) -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- HTMX -->
+    <script src="https://unpkg.com/htmx.org@latest"></script>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+
+    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+</head>
+<body class="bg-slate-100 text-slate-900">
+    <header class="bg-white shadow mb-6">
+        <nav class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
+            <div class="font-semibold text-lg">My Demo Site</div>
+            <div class="space-x-4">
+                <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline">Home</a>
+                <a href="{{ url_for('about') }}" class="text-blue-600 hover:underline">About</a>
+            </div>
+        </nav>
+    </header>
+
+    <main class="max-w-4xl mx-auto px-4">
+        {% block content %}{% endblock %}
+    </main>
+
+    <footer class="max-w-4xl mx-auto px-4 mt-10 text-sm text-slate-500">
+        Simple FastAPI + HTMX + Alpine demo
+    </footer>
+</body>
+</html>
