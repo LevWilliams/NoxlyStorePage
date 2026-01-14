@@ -1,21 +1,12 @@
 services:
   web:
     build: .
-    container_name: fastapi_web
-    expose:
-      - "8000"
-    environment:
-      - ENV=production
-    restart: unless-stopped
+    expose: ["8000"]
 
   nginx:
     image: nginx:1.27-alpine
-    container_name: fastapi_nginx
-    depends_on:
-      - web
-    ports:
-      - "80:80"
+    depends_on: [web]
+    ports: ["80:80"]
     volumes:
       - ./nginx/nginx.conf:/etc/nginx/nginx.conf:ro
-      - ./app/static:/static:ro
-    restart: unless-stopped
+      - ./app/static_hashed:/static:ro
