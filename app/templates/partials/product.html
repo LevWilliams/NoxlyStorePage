@@ -1,0 +1,117 @@
+<section id="product" class="section">
+  <div class="container">
+    <div class="product">
+      <div class="media-card">
+        <img src="{{ url_for('static', path='assets/product.png') }}" alt="The Fifth product bottle" />
+      </div>
+
+      <div>
+        <h2 class="prod-title">The Fifth</h2>
+        <p class="note">A retinol-alternative treatment oil featuring bakuchiol and premium botanical extracts.</p>
+
+        <div class="stock" role="status" aria-live="polite">
+          <div class="icon">!</div>
+          <p><strong>Low stock alert.</strong> This product has been selling out quickly. Consider bundling to secure your supply.</p>
+        </div>
+
+        <div class="card price-card">
+          <div class="price-row">
+            <div>
+              <div class="price" id="totalPrice">$139.00</div>
+              <div class="unit" id="unitPrice">($139.00 / bottle)</div>
+            </div>
+            <div class="ship-meta">
+              <div class="unit">Ships in 1–2 business days</div>
+              <div class="unit">Free returns</div>
+            </div>
+          </div>
+
+          <div class="options" role="radiogroup" aria-label="Purchase options">
+            <label class="opt">
+              <span class="opt-left">
+                <input type="radio" name="bundle" value="1" data-unit="139" checked />
+                <span>
+                  <div class="opt-name">1 Bottle</div>
+                  <div class="opt-sub">Best to try it out</div>
+                </span>
+              </span>
+              <span class="opt-right">
+                <div class="opt-price">$139.00</div>
+                <div class="opt-per">$139 / bottle</div>
+              </span>
+            </label>
+
+            <label class="opt">
+              <span class="opt-left">
+                <input type="radio" name="bundle" value="2" data-unit="132" />
+                <span>
+                  <div class="opt-name">2 Bottles</div>
+                  <div class="opt-sub">Save vs. single bottle</div>
+                </span>
+              </span>
+              <span class="opt-right">
+                <div class="opt-price">$264.00</div>
+                <div class="opt-per">$132 / bottle</div>
+              </span>
+            </label>
+
+            <label class="opt">
+              <span class="opt-left">
+                <input type="radio" name="bundle" value="3" data-unit="125" />
+                <span>
+                  <div class="opt-name">3 Bottles</div>
+                  <div class="opt-sub">Best value bundle</div>
+                </span>
+              </span>
+              <span class="opt-right">
+                <div class="opt-price">$375.00</div>
+                <div class="opt-per">$125 / bottle</div>
+              </span>
+            </label>
+          </div>
+
+          <div class="buy-row">
+            <div class="qty" aria-label="Quantity">
+              <button type="button" id="qtyMinus" aria-label="Decrease quantity">−</button>
+              <input type="number" id="qtyInput" value="1" min="1" max="10" inputmode="numeric" aria-label="Quantity value" />
+              <button type="button" id="qtyPlus" aria-label="Increase quantity">+</button>
+            </div>
+            <button class="btn primary" type="button" id="addToCart">Add to cart</button>
+            <button class="btn" type="button" id="subscribe">Subscribe &amp; save</button>
+          </div>
+
+          <div class="express" aria-label="Express checkout">
+            <button class="btn" type="button">Pay with Shop Pay</button>
+            <button class="btn" type="button">Pay with PayPal</button>
+            <button class="btn" type="button">Pay with GPay</button>
+          </div>
+
+          <div class="accordion" id="ingredients">
+            <details>
+              <summary>Will it work for me? <span class="chev" aria-hidden="true">⌄</span></summary>
+              <div class="content">
+                The Fifth is designed for most skin types, including sensitive skin. Start 2–3 nights/week and increase as tolerated.
+              </div>
+            </details>
+            <details>
+              <summary>What results can I expect? <span class="chev" aria-hidden="true">⌄</span></summary>
+              <div class="content">
+                With consistent use, many people notice smoother-looking texture and a more even glow. Results vary by routine and skin type.
+              </div>
+            </details>
+            <details>
+              <summary>100% Premium Organic Ingredients <span class="chev" aria-hidden="true">⌄</span></summary>
+              <div class="content">
+                A curated blend of botanical oils and actives featuring bakuchiol (a plant-derived retinol alternative). Patch test recommended.
+              </div>
+            </details>
+          </div>
+        </div>
+
+        <p class="note disclaimer">
+          Disclaimer: This is a front-end build of the provided design deck. Replace copy, pricing, and checkout integrations as needed.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
