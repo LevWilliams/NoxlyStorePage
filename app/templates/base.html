@@ -5,9 +5,8 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <title>{% block title %}Noxly{% endblock %}</title>
 
-  <link rel="stylesheet" href="{{ url_for('static', path='static-styles.css') }}">
+  <link rel="stylesheet" href="/static/static-styles.css">
 
-  <!-- Optional, but common with your stack -->
   <script defer src="https://unpkg.com/htmx.org@1.9.12"></script>
   <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
@@ -23,7 +22,7 @@
 
   {% include "partials/footer.html" %}
 
-  <script defer src="{{ url_for('static', path='app.js') }}"></script>
+  <script defer src="/static/app.js"></script>
   {% block scripts %}{% endblock %}
 </body>
 </html>
