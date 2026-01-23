@@ -1,52 +1,9 @@
 {% extends "base.html" %}
-{% block title %}Home{% endblock %}
+
+{% block title %}Noxly – The Fifth (Bakuchiol){% endblock %}
 
 {% block content %}
-<h1 class="text-2xl font-bold mb-4">Home</h1>
-
-<p class="mb-6">
-    This is the home page. Below are examples of:
-</p>
-<ul class="list-disc ml-6 mb-6">
-    <li>HTMX loading a partial from the server</li>
-    <li>Alpine.js for reactive behavior in the browser</li>
-</ul>
-
-<!-- HTMX example: load current time from server into a div -->
-<div class="mb-6 border rounded p-4 bg-white shadow-sm">
-    <h2 class="font-semibold mb-2">Server Time (HTMX)</h2>
-
-    <button
-        class="px-3 py-1 rounded bg-blue-600 text-white text-sm hover:bg-blue-700"
-        hx-get="/time-fragment"
-        hx-target="#time-container"
-        hx-swap="innerHTML"
-    >
-        Load / Refresh Time
-    </button>
-
-    <div id="time-container" class="mt-3 text-slate-700">
-        Click the button to load the current time.
-    </div>
-</div>
-
-<!-- Alpine example: simple counter -->
-<div class="border rounded p-4 bg-white shadow-sm" x-data="{ count: 0 }">
-    <h2 class="font-semibold mb-2">Local Counter (Alpine.js)</h2>
-    <p class="mb-3">This counter is 100% client-side (no server calls).</p>
-
-    <div class="flex items-center gap-3">
-        <button
-            class="px-3 py-1 rounded bg-slate-200 hover:bg-slate-300"
-            @click="count--"
-        >-</button>
-
-        <span class="text-xl font-mono" x-text="count"></span>
-
-        <button
-            class="px-3 py-1 rounded bg-slate-200 hover:bg-slate-300"
-            @click="count++"
-        >+</button>
-    </div>
-</div>
+  {% include "partials/hero.html" %}
+  {% include "partials/product.html" %}
+  {% include "partials/testimonials.html" %}
 {% endblock %}
