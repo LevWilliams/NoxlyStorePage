@@ -1,38 +1,29 @@
-<!DOCTYPE html>
-<html lang="en" x-data>
+<!doctype html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <title>{% block title %}My Site{% endblock %}</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>{% block title %}Noxly{% endblock %}</title>
 
-    <!-- Tailwind optional, but nice for quick styling (you can remove if not wanted) -->
-    <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="{{ url_for('static', path='static-styles.css') }}">
 
-    <!-- HTMX -->
-    <script src="https://unpkg.com/htmx.org@latest"></script>
+  <!-- Optional, but common with your stack -->
+  <script defer src="https://unpkg.com/htmx.org@1.9.12"></script>
+  <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
 
-    <!-- Alpine.js -->
-    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
-
-    <link rel="stylesheet" href="{{ url_for('static', path='styles.css') }}">
+  {% block head %}{% endblock %}
 </head>
-<body class="bg-slate-100 text-slate-900">
-    <header class="bg-white shadow mb-6">
-        <nav class="max-w-4xl mx-auto px-4 py-4 flex justify-between items-center">
-            <div class="font-semibold text-lg">My Demo Site</div>
-            <div class="space-x-4">
-                <a href="{{ url_for('home') }}" class="text-blue-600 hover:underline">Home</a>
-                <a href="{{ url_for('about') }}" class="text-blue-600 hover:underline">About</a>
-            </div>
-        </nav>
-    </header>
+<body>
 
-    <main class="max-w-4xl mx-auto px-4">
-        {% block content %}{% endblock %}
-    </main>
+  {% include "partials/topbar.html" %}
 
-    <footer class="max-w-4xl mx-auto px-4 mt-10 text-sm text-slate-500">
-        Simple FastAPI + HTMX + Alpine demo
-    </footer>
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  {% include "partials/footer.html" %}
+
+  <script defer src="{{ url_for('static', path='app.js') }}"></script>
+  {% block scripts %}{% endblock %}
 </body>
 </html>
