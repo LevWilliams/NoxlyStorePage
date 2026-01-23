@@ -1,6 +1,6 @@
 import json
 from pathlib import Path
-from datetime import datetime
+
 from fastapi import FastAPI, Request
 from fastapi.responses import HTMLResponse
 from fastapi.staticfiles import StaticFiles
@@ -8,13 +8,17 @@ from fastapi.templating import Jinja2Templates
 
 app = FastAPI()
 
+# Directory of this file: /app/app/main.py -> BASE_DIR = /app/app
+BASE_DIR = Path(__file__).resolve().parent
+
 # Static files (CSS, JS, images)
 app.mount("/static", StaticFiles(directory=BASE_DIR / "static"), name="static")
 
 # Jinja2 template directory
 templates = Jinja2Templates(directory=str(BASE_DIR / "templates"))
 
-manifest_path = Path("app/static_manifest.json")
+# Optional: static manifest for cache-busted filenames
+manifest_path = BASE_DIR / "static_manifest.json"
 STATIC_MANIFEST = json.loads(manifest_path.read_text()) if manifest_path.exists() else {}
 
 def static_url(path: str) -> str:
